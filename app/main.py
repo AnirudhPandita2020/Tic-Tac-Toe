@@ -13,7 +13,7 @@ async def define_game_endpoint(websocket:WebSocket,username:str,game:int):
     await manager.connect(websocket,username,game)
     try:
         while True:
-            data = json.loads(await websocket.receive())
+            data = json.loads(await websocket.receive_text())
             row = data['x']
             col = data['y']
             move = data['move']
